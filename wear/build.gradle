@@ -1,16 +1,26 @@
 apply plugin: 'com.android.application'
 
 
+def versionMajor = 0
+def versionMinor = 0
+def versionPatch = 1
+def versionBuild = 0
+
+def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
+def buildTime = new Date().format("yyyy-MM-dd'T'HH:mm'Z'", TimeZone.getTimeZone("UTC"))
+
 android {
-    compileSdkVersion 22
+    compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion "23.0.0 rc3"
 
     defaultConfig {
         applicationId "com.philheenan.immaterial"
-        minSdkVersion 21
-        targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.compileSdkVersion
+        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+        buildConfigField "String", "GIT_SHA", "\"${gitSha}\""
+        buildConfigField "String", "BUILD_TIME", "\"${buildTime}\""
     }
     buildTypes {
         release {
@@ -21,7 +31,6 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.google.android.support:wearable:1.2.0'
-    compile 'com.google.android.gms:play-services-wearable:7.5.0'
+    compile rootProject.ext.libraries.wearable
+    compile rootProject.ext.libraries.googlePlayServicesWear
 }
