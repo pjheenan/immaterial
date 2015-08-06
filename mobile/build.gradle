@@ -43,5 +43,6 @@ android {
 }
 
 dependencies {
+    compile project(':core')
 //    wearApp project(':wear')
 }
