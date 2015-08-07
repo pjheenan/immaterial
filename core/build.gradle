@@ -6,6 +6,10 @@ sourceCompatibility = "1.7"
 
 dependencies {
     compile rootProject.ext.libraries.rxjava
+    compile rootProject.ext.libraries.javaxInject
+    compile rootProject.ext.libraries.dagger
+    providedCompile rootProject.ext.libraries.daggerCompiler
+
 
     testCompile testLibraries.junit
     testCompile testLibraries.mockito
