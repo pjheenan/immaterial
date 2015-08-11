@@ -10,10 +10,7 @@ import dagger.Provides;
  *
  * @author Phil Heenan on 07/08/15.
  */
-@Module (
-        library = true,
-        complete = false
-)
+@Module
 public class RemoteModule {
 
     @Provides

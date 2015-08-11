@@ -1,6 +1,6 @@
 package com.philheenan.immaterial.conductor;
 
-import com.philheenan.immaterial.conductor.facets.MovieListConductorTest;
+import com.philheenan.immaterial.conductor.component.MovieListModule;
 import com.philheenan.immaterial.conductor.facets.movie_list.MovieListCacheFacet;
 import com.philheenan.immaterial.conductor.facets.movie_list.MovieListRemoteFacet;
 
@@ -12,16 +12,8 @@ import dagger.Provides;
 /**
  * @author Phil Heenan on 07/08/15.
  */
-@Module (
-        library = true,
-        complete = false,
-        addsTo = ConductorModule.class,
-        injects = {
-                ConductorBaseTest.class,
-                MovieListConductorTest.class
-        }
-)
-public class ConductorTestModule {
+@Module
+public class MovieListTestModule extends MovieListModule {
 
     @Provides
     MovieListCacheFacet provideMovieListCacheFacet() {
