@@ -9,6 +9,7 @@ dependencies {
     compile rootProject.ext.libraries.javaxInject
     compile rootProject.ext.libraries.dagger
     providedCompile rootProject.ext.libraries.daggerCompiler
+    providedCompile 'org.glassfish:javax.annotation:10.0-b28'
 
 
     testCompile testLibraries.junit
