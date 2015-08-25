@@ -18,11 +18,9 @@ Core frameworks employed by this application are `rxJava` and `Dagger2`. The `Ob
 Communication between the `UI` and `backend` areas occurs through a `Presenter` implementation which
  communicates to the `View` instances through a `ViewModel` interface.
 
-### Environment
-
 
 ### Development
-The majority of development work is done on the `dev` branch, this branch should always be ing a buildable state.
+The majority of development work is done on the `dev` branch, this branch should always be in a buildable state.
 
 The `master` branch is a release only branch with the version numbers as `tags`
 
