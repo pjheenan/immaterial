@@ -44,6 +44,6 @@ android {
 
 dependencies {
     compile project(':core')
-    compile project(':conductor')
+    compile project(':presentation')
 //    wearApp project(':wear')
 }
