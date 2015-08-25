@@ -8,7 +8,8 @@ This application uses a mix of Java and Android modules. Java modules allow for 
  faster build time as all tests run as simple Junit tests. Android modules are kept to only those modules
  that need to know about Android code thereby enforcing the separation of processing and UI code.
 
-Core frameworks employed by this application are `rxJava` and `Dagger2`. The `Observable` framework is used for
+Core frameworks employed by this application are [`rxJava`](https://github.com/ReactiveX/RxJava) and
+ [`Dagger2`](http://google.github.io/dagger/). The [`Observable`](http://reactivex.io/documentation/observable.html) framework is used for
  communication between the backend modules used to implement `remote` and `cached` processing, which is in turn
  encapsulated in the `conductor` module. The `conductor` module is the pivot point between backend processing
  and UI centered functionality and enables the two areas to be developed in tandem or separately as required. It
