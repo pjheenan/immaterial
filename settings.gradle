@@ -1,3 +1,3 @@
-include ':mobile', ':core', ':conductor', ':remote', ':cache'
+include ':mobile', ':core', ':conductor', ':remote', ':cache', ':model'
 include ':tv'
 include ':wear'

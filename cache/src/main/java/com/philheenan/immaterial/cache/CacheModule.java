@@ -1,7 +1,7 @@
 package com.philheenan.immaterial.cache;
 
-import com.philheenan.immaterial.cache.movie_list.MovieListCache;
-import com.philheenan.immaterial.conductor.facets.movie_list.MovieListCacheFacet;
+import com.philheenan.immaterial.cache.sample.SampleCache;
+import com.philheenan.immaterial.conductor.facets.sample.SampleCacheFacet;
 
 import dagger.Module;
 import dagger.Provides;
@@ -13,7 +13,7 @@ import dagger.Provides;
 public class CacheModule {
 
     @Provides
-    MovieListCacheFacet provideMovieListCache() {
-        return new MovieListCache();
+    SampleCacheFacet provideSampleCache() {
+        return new SampleCache();
     }
 }

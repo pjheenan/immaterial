@@ -1,4 +1,4 @@
-package com.philheenan.immaterial.conductor.facets.movie_list;
+package com.philheenan.immaterial.conductor.facets.sample;
 
 import com.philheenan.immaterial.conductor.ConductorBaseTest;
 
@@ -16,10 +16,10 @@ import static org.mockito.Matchers.any;
 /**
  * @author Phil Heenan on 07/08/15.
  */
-public class MovieListConductorTest extends ConductorBaseTest {
+public class SampleConductorTest extends ConductorBaseTest {
 
     @Inject
-    com.philheenan.immaterial.conductor.facets.movie_list.MovieListConductor conductor;
+    SampleConductor conductor;
 
     @Before
     public void setup() {
@@ -36,15 +36,15 @@ public class MovieListConductorTest extends ConductorBaseTest {
 
     @Test
     public void testObservables() {
-        Mockito.when(conductor.remoteFacet.process(any(MovieListRemoteRequest.class)))
+        Mockito.when(conductor.remoteFacet.process(any(SampleRemoteRequest.class)))
                 .thenReturn(Observable.<Object>just("remote"));
-        Mockito.when(conductor.cacheFacet.process(any(MovieListCacheRequest.class)))
+        Mockito.when(conductor.cacheFacet.process(any(SampleCacheRequest.class)))
                 .thenReturn(Observable.<Object>just("cache"));
 
         conductor.process("input");
 
-        Mockito.verify(conductor.remoteFacet).process(any(MovieListRemoteRequest.class));
-        Mockito.verify(conductor.cacheFacet).process(any(MovieListCacheRequest.class));
+        Mockito.verify(conductor.remoteFacet).process(any(SampleRemoteRequest.class));
+        Mockito.verify(conductor.cacheFacet).process(any(SampleCacheRequest.class));
 
     }
 }

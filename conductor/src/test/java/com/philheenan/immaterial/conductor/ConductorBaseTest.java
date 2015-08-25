@@ -1,6 +1,6 @@
 package com.philheenan.immaterial.conductor;
 
-import com.philheenan.immaterial.conductor.facets.movie_list.MovieListConductorTest;
+import com.philheenan.immaterial.conductor.facets.sample.SampleConductorTest;
 
 import org.junit.Before;
 
@@ -16,12 +16,12 @@ public class ConductorBaseTest {
     @Before
     public void setup() {
         conductorComponent = DaggerConductorBaseTest_TestComponent.builder()
-                .movieListTestModule(new MovieListTestModule())
+                .sampleTestModule(new SampleTestModule())
                 .build();
     }
 
-    @Component(modules = MovieListTestModule.class)
+    @Component(modules = SampleTestModule.class)
     public interface TestComponent extends ConductorComponent {
-        void inject(MovieListConductorTest testCase);
+        void inject(SampleConductorTest testCase);
     }
 }

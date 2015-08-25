@@ -5,9 +5,6 @@ apply plugin: 'war'
 sourceCompatibility = "1.7"
 
 dependencies {
-    compile project(':core')
-    compile project(':model')
-
     testCompile testLibraries.junit
     testCompile testLibraries.mockito
 }

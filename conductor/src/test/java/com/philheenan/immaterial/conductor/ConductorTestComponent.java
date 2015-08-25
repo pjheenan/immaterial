@@ -5,7 +5,7 @@ import dagger.Component;
 /**
  * @author Phil Heenan on 10/08/15.
  */
-@Component(modules = MovieListTestModule.class)
+@Component(modules = SampleTestModule.class)
 public interface ConductorTestComponent extends ConductorComponent {
 
     void inject(ConductorBaseTest testCase);

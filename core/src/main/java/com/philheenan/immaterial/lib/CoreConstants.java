@@ -3,5 +3,5 @@ package com.philheenan.immaterial.lib;
 /**
  * @author Phil Heenan
  */
-public class LibConstants {
+public class CoreConstants {
 }

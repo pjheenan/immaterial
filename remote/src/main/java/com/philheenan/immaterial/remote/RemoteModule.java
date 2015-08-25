@@ -1,7 +1,7 @@
 package com.philheenan.immaterial.remote;
 
-import com.philheenan.immaterial.conductor.facets.movie_list.MovieListRemoteFacet;
-import com.philheenan.immaterial.remote.movie_list.MovieListRemote;
+import com.philheenan.immaterial.conductor.facets.sample.SampleRemoteFacet;
+import com.philheenan.immaterial.remote.sample.SampleRemote;
 
 import dagger.Module;
 import dagger.Provides;
@@ -14,7 +14,7 @@ import dagger.Provides;
 public class RemoteModule {
 
     @Provides
-    MovieListRemoteFacet provideMovieListFacet() {
-        return new MovieListRemote();
+    SampleRemoteFacet providesampleFacet() {
+        return new SampleRemote();
     }
 }

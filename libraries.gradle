@@ -16,7 +16,7 @@ ext {
     cardViewVersion = '+'
     assertJVersion = '1.0.0'
     picassoVersion = '2.5.2'
-    googlePlayServicesVersion = '7.5.+'
+    googlePlayServicesVersion = '7.8.+'
     recyclerAnimators = '1.2.0'
     facebookSDKVersion = '4.4.0'
     multidexSupportVersion = '1.0.0'
