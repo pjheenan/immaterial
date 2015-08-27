@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'jacoco'
 
 def versionMajor = 0
 def versionMinor = 0
@@ -22,6 +22,9 @@ android {
         checkReleaseBuilds false
         abortOnError false
     }
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
 
     defaultConfig {
         applicationId "com.philheenan.immaterial"
@@ -35,6 +38,9 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -45,5 +51,14 @@ android {
 dependencies {
     compile project(':core')
     compile project(':presentation')
-//    wearApp project(':wear')
+    compile project(':remote')
+    compile project(':cache')
+
+    androidTestCompile rootProject.ext.testLibraries.junit
+    androidTestCompile rootProject.ext.testLibraries.mockito
+    androidTestCompile(rootProject.ext.testLibraries.espresso) {
+        exclude group: 'com.squareup', module: 'javawriter'
+    }
+    androidTestCompile rootProject.ext.testLibraries.runner
+    androidTestCompile rootProject.ext.testLibraries.rules
 }

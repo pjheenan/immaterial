@@ -24,7 +24,7 @@ public class SampleConductorTest extends ConductorBaseTest {
     @Before
     public void setup() {
         super.setup();
-        conductorComponent.inject(this);
+        graph.inject(this);
     }
 
     @Test

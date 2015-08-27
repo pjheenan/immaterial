@@ -9,7 +9,10 @@ import dagger.Provides;
 /**
  * @author Phil Heenan on 07/08/15.
  */
-@Module
+@Module (
+        complete = false,
+        library = true
+)
 public class CacheModule {
 
     @Provides

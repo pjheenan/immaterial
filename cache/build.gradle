@@ -1,8 +1,22 @@
 apply plugin: 'com.android.library'
+apply plugin: 'jacoco'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    lintOptions {
+        quiet true
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -10,9 +24,12 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -21,14 +38,13 @@ android {
 }
 
 dependencies {
+    compile project(':core')
     compile project(':conductor')
 
     androidTestCompile rootProject.ext.testLibraries.junit
-    androidTestCompile rootProject.ext.testLibraries.runner
     androidTestCompile rootProject.ext.testLibraries.mockito
-    androidTestCompile rootProject.ext.testLibraries.dexmaker
-    androidTestCompile rootProject.ext.testLibraries.dexmakerMockito
-
+    androidTestCompile rootProject.ext.testLibraries.runner
+    androidTestCompile rootProject.ext.testLibraries.rules
 }
 
 apply from: rootProject.file('checkstyle-library.gradle')
