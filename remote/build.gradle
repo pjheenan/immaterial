@@ -6,6 +6,12 @@ sourceCompatibility = "1.7"
 
 dependencies {
     compile project(':conductor')
+    compile project(':remoteentity')
+    compile project(':model')
+
+    compile rootProject.ext.libraries.retrofit
+    compile rootProject.ext.libraries.okhttp
+    compile rootProject.ext.libraries.okhttpurl
 
     testCompile testLibraries.junit
     testCompile testLibraries.mockito
