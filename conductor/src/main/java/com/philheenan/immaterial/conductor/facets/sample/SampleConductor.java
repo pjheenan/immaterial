@@ -1,6 +1,7 @@
 package com.philheenan.immaterial.conductor.facets.sample;
 
 import com.philheenan.immaterial.lib.contract.Facet;
+import com.philheenan.immaterial.sample.Sample;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,15 +29,11 @@ public class SampleConductor implements Facet<String, List<String>> {
     public Observable<List<String>> process(String input) {
         return remoteFacet.process(new SampleRemoteRequest())
                 .startWith(cacheFacet.process(new SampleCacheRequest()))
-                .map(new Func1<Object, List<String>>() {
+                .map(new Func1<Sample, List<String>>() {
                     @Override
-                    public List<String> call(Object o) {
+                    public List<String> call(Sample o) {
                         List<String> result = new ArrayList<>();
-                        if (o instanceof String) {
-                            result.add((String) o);
-                        } else {
-                            result.add(o.toString());
-                        }
+                        result.add(o.name);
                         return result;
                     }
                 });

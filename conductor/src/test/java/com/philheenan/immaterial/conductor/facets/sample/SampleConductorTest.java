@@ -1,6 +1,7 @@
 package com.philheenan.immaterial.conductor.facets.sample;
 
 import com.philheenan.immaterial.conductor.ConductorBaseTest;
+import com.philheenan.immaterial.sample.Sample;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -44,10 +45,14 @@ public class SampleConductorTest extends ConductorBaseTest {
     public void testObservables() {
         Observer<Object> mockObserver = Mockito.mock(Observer.class);
 
+        Sample remoteSample = new Sample();
+        remoteSample.name = "remote";
+        Sample cacheSample = new Sample();
+        cacheSample.name = "cache";
         Mockito.when(conductor.remoteFacet.process(any(SampleRemoteRequest.class)))
-                .thenReturn(Observable.<Object>just("remote"));
+                .thenReturn(Observable.<Sample>just(remoteSample));
         Mockito.when(conductor.cacheFacet.process(any(SampleCacheRequest.class)))
-                .thenReturn(Observable.<Object>just("cache"));
+                .thenReturn(Observable.<Sample>just(cacheSample));
         ArgumentCaptor<List> captor = ArgumentCaptor.forClass(List.class);
 
         conductor.process("input").subscribe(mockObserver);

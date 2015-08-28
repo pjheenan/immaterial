@@ -1,7 +1,7 @@
 package com.philheenan.immaterial.remote;
 
 import com.philheenan.immaterial.conductor.facets.sample.SampleRemoteFacet;
-import com.philheenan.immaterial.remote.sample.SampleRemote;
+import com.philheenan.immaterial.remote.sample.SampleRemoteApiFacet;
 
 import dagger.Module;
 import dagger.Provides;
@@ -18,6 +18,6 @@ public class RemoteModule {
 
     @Provides
     SampleRemoteFacet providesampleFacet() {
-        return new SampleRemote();
+        return new SampleRemoteApiFacet();
     }
 }
