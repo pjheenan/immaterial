@@ -1,5 +1,6 @@
 package com.philheenan.immaterial.remote;
 
+import com.philheenan.immaterial.remote.sample.SampleModelFactoryTest;
 import com.philheenan.immaterial.remote.sample.SampleRemoteFacetTest;
 
 import dagger.Module;
@@ -14,6 +15,7 @@ import dagger.Module;
         addsTo = RemoteModule.class,
         injects = {
                 RemoteBaseTest.class,
+                SampleModelFactoryTest.class,
                 SampleRemoteFacetTest.class
         }
 )
