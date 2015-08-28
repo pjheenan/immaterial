@@ -1,6 +1,6 @@
 package com.philheenan.immaterial.conductor;
 
-import com.philheenan.immaterial.conductor.component.SampleModule;
+import com.philheenan.immaterial.conductor.component.ConductorModule;
 
 import org.junit.Before;
 
@@ -15,7 +15,7 @@ public class ConductorBaseTest {
 
     @Before
     public void setup() {
-        graph = ObjectGraph.create(new SampleModule(), new SampleTestModule());
+        graph = ObjectGraph.create(new ConductorModule(), new SampleTestModule());
     }
 
 }
