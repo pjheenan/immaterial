@@ -12,7 +12,10 @@ import dagger.Provides;
  */
 @Module (
         complete = false,
-        library = true
+        library = true,
+        includes = {
+            ModelFactoryModule.class
+        }
 )
 public class RemoteModule {
 
@@ -20,4 +23,5 @@ public class RemoteModule {
     SampleRemoteFacet providesampleFacet() {
         return new SampleRemoteApiFacet();
     }
+
 }
