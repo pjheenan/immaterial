@@ -10,7 +10,7 @@ import com.philheenan.immaterial.sample.Sample;
 public class SampleModelFactory implements ModelFactory<SampleEntity, Sample> {
 
     @Override
-    public Sample fromApiEntity(SampleEntity entity) {
+    public Sample fromEntity(SampleEntity entity) {
         Sample sample = new Sample();
         if (entity != null) {
             sample.name = (entity.name != null && entity.name.length() > 0 ? entity.name + " " : "");

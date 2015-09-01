@@ -9,7 +9,6 @@ import com.philheenan.immaterial.sample.Sample;
 import javax.inject.Inject;
 
 import rx.Observable;
-import rx.Subscriber;
 import rx.functions.Func1;
 
 /**
@@ -29,7 +28,7 @@ public class SampleRemoteApiFacet implements SampleRemoteFacet {
         return new Func1<SampleEntity, Sample>() {
             @Override
             public Sample call(SampleEntity sampleEntity) {
-                return null;
+                return modelFactory.fromEntity(sampleEntity);
             }
         };
     }

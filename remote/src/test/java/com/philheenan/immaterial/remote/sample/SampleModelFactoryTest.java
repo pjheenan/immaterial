@@ -38,14 +38,14 @@ public class SampleModelFactoryTest extends RemoteBaseTest {
         SampleEntity entity = new SampleEntity();
         entity.name = "Name";
         entity.version = 10;
-        Sample sample = modelFactory.fromApiEntity(entity);
+        Sample sample = modelFactory.fromEntity(entity);
         assertNotNull(sample);
         assertEquals("Name 10", sample.name);
     }
 
     @Test
     public void testNullEntityMapping() {
-        Sample sample = modelFactory.fromApiEntity(null);
+        Sample sample = modelFactory.fromEntity(null);
         assertNotNull(sample);
         assertNull(sample.name);
     }
@@ -55,7 +55,7 @@ public class SampleModelFactoryTest extends RemoteBaseTest {
         SampleEntity entity = new SampleEntity();
         entity.name = null;
         entity.version = 10;
-        Sample sample = modelFactory.fromApiEntity(entity);
+        Sample sample = modelFactory.fromEntity(entity);
         assertNotNull(sample);
         assertEquals("10", sample.name);
     }
@@ -64,7 +64,7 @@ public class SampleModelFactoryTest extends RemoteBaseTest {
     public void testNullVersion() {
         SampleEntity entity = new SampleEntity();
         entity.name = "Name";
-        Sample sample = modelFactory.fromApiEntity(entity);
+        Sample sample = modelFactory.fromEntity(entity);
         assertNotNull(sample);
         assertEquals("Name 0", sample.name);
     }
@@ -74,7 +74,7 @@ public class SampleModelFactoryTest extends RemoteBaseTest {
         SampleEntity entity = new SampleEntity();
         entity.name = "";
         entity.version = 10;
-        Sample sample = modelFactory.fromApiEntity(entity);
+        Sample sample = modelFactory.fromEntity(entity);
         assertNotNull(sample);
         assertEquals("10", sample.name);
     }

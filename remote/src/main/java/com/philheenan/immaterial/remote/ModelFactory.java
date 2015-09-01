@@ -5,5 +5,5 @@ package com.philheenan.immaterial.remote;
  */
 public interface ModelFactory<A, M> {
 
-    M fromApiEntity(A entity);
+    M fromEntity(A entity);
 }
