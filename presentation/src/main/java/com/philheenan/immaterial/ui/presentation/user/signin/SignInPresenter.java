@@ -27,19 +27,40 @@ public class SignInPresenter implements Presenter<SignInViewModel> {
     }
 
     public void signIn(String username, String password) {
-        doSignIn(username, password);
+        doSignIn(validateUser(username, password));
     }
 
     public void forgotPassword(String username) {
 
     }
 
-    protected void doSignIn(String username, String password) {
-        viewModel.processing(true);
+    protected void doSignIn(User user) {
+        if (user != null) {
+            viewModel.processing(true);
+            conductor.process(user);
+        }
+    }
+
+    protected User validateUser(String username, String password) {
         User user = new User();
-        user.username = username;
-        user.password = password;
-        conductor.process(user);
+        if (isEmptyString(username)) {
+            viewModel.showInvalidUsername();
+            return null;
+        } else {
+            user.username = username;
+        }
+        if (isEmptyString(password)) {
+            viewModel.showInvalidUsernamePassword();
+            return null;
+        } else {
+            user.password = password;
+        }
+
+        return user;
+    }
+
+    private boolean isEmptyString(String input) {
+        return input == null || input.length() == 0;
     }
 
 }

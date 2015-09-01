@@ -60,6 +60,17 @@ public class SignInPresenterTest extends PresentationBaseTest {
 
         verify(viewModel).processing(Matchers.eq(true));
         verify(mockFacet).process(eq(user));
+    }
 
+    @Test
+    public void testSignIn_EmptyUsername() {
+        User user = new User();
+        user.username = "";
+        user.password = "password";
+        presenter.signIn(user.username, user.password);
+
+        verify(viewModel).showInvalidUsername();
+        verify(viewModel, never()).processing(anyBoolean());
+        verify(mockFacet, never()).process(any(User.class));
     }
 }
