@@ -1,16 +1,21 @@
 package com.philheenan.immaterial.ui.presentation.user.signin;
 
+import com.philheenan.immaterial.lib.contract.Facet;
 import com.philheenan.immaterial.ui.presentation.PresentationBaseTest;
+import com.philheenan.immaterial.user.User;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Matchers;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import javax.inject.Inject;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.mockito.Mockito.*;
 
 /**
  * @author Phil Heenan on 01/09/15.
@@ -22,6 +27,9 @@ public class SignInPresenterTest extends PresentationBaseTest {
 
     @Inject
     SignInPresenter presenter;
+
+    @Inject
+    Facet<User, Object> mockFacet;
 
     @Before
     public void setup() {
@@ -41,5 +49,17 @@ public class SignInPresenterTest extends PresentationBaseTest {
     public void testUnbind() {
         presenter.unbind();
         assertNull(presenter.viewModel);
+    }
+
+    @Test
+    public void testSignIn_UsernameAndPassword() {
+        User user = new User();
+        user.username = "username";
+        user.password = "password";
+        presenter.signIn(user.username, user.password);
+
+        verify(viewModel).processing(Matchers.eq(true));
+        verify(mockFacet).process(eq(user));
+
     }
 }

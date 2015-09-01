@@ -7,6 +7,7 @@ import com.philheenan.immaterial.ui.presentation.ViewModel;
  */
 public interface SignInViewModel extends ViewModel {
 
+    void processing(boolean isProcessing);
     void showInvalidUsername();
     void showInvalidUsernamePassword();
 
