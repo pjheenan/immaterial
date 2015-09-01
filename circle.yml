@@ -8,6 +8,7 @@ test:
             background: true
             parallel: true
     - circle-android wait-for-boot:
+            parallel: true
   override:
     - ./gradlew clean checkDebug -PdisablePreDex
     - ./gradlew test connectedCheck -PdisablePreDex
