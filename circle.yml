@@ -7,7 +7,7 @@ test:
     - emulator -avd circleci-android21 -no-audio -no-boot-anim -no-window:
             background: true
             parallel: true
-    - circle-android wait-for-boot
+    - circle-android wait-for-boot:
   override:
     - ./gradlew clean checkDebug -PdisablePreDex
     - ./gradlew test connectedCheck -PdisablePreDex
