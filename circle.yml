@@ -11,5 +11,6 @@ test:
     - ./gradlew clean checkDebug -PdisablePreDex
     - ./gradlew test connectedCheck -PdisablePreDex
     - cp -r cache/build/outputs/androidTest-results/connected $CIRCLE_TEST_REPORTS
+    - cp -r presentation/build/test-results/ $CIRCLE_TEST_REPORTS
     - cp -r conductor/build/test-results/ $CIRCLE_TEST_REPORTS
     - cp -r remote/build/test-results/ $CIRCLE_TEST_REPORTS
