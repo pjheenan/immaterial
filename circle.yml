@@ -4,7 +4,7 @@ machine:
     GRADLE_OPTS: -Xmx768m -Xms512m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+HeapDumpOnOutOfMemoryError
 test:
   override:
-  - emulator -avd circleci-android22 -no-audio -no-boot-anim -no-window:
+  - emulator -avd circleci-android22 -no-audio -no-window:
           background: true
           parallel: true
   - circle-android wait-for-boot
