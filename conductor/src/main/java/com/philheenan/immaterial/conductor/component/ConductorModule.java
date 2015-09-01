@@ -1,5 +1,7 @@
 package com.philheenan.immaterial.conductor.component;
 
+import com.philheenan.immaterial.conductor.facets.sample.SampleModule;
+
 import dagger.Module;
 
 /**
@@ -9,7 +11,7 @@ import dagger.Module;
         complete = false,
         library = true,
         includes = {
-                com.philheenan.immaterial.conductor.facets.sample.SampleModule.class
+                SampleModule.class
         }
 )
 public class ConductorModule {
