@@ -1,6 +1,6 @@
 machine:
   environment:
-    ANDROID_HOME: /usr/local/android-sdk-linux
+#    ANDROID_HOME: /usr/local/android-sdk-linux
     DEFAULT_JVM_OPTS: -Xms512m -Xmx768m
     GRADLE_OPTS: -Xmx768m -Xms512m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+HeapDumpOnOutOfMemoryError
 test:
@@ -8,11 +8,11 @@ test:
     - emulator -avd circleci-android22 -no-audio -no-boot-anim -no-window:
             background: true
             parallel: true
-    - bin/wait.sh
-#    - circle-android wait-for-boot:
-#            parallel: true
-    - ./gradlew clean checkDebug -PdisablePreDex
-    - ./gradlew test connectedCheck -PdisablePreDex
+#    - bin/wait.sh
+    - circle-android wait-for-boot:
+            parallel: true
+    - ./gradlew clean checkDebug
+    - ./gradlew test connectedCheck
     - cp -r cache/build/outputs/androidTest-results/connected $CIRCLE_TEST_REPORTS
     - cp -r presentation/build/test-results/ $CIRCLE_TEST_REPORTS
     - cp -r conductor/build/test-results/ $CIRCLE_TEST_REPORTS
