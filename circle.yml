@@ -9,8 +9,8 @@ test:
             background: true
             parallel: true
     - bin/wait.sh
-    - circle-android wait-for-boot:
-            parallel: true
+#    - circle-android wait-for-boot:
+#            parallel: true
     - ./gradlew clean checkDebug -PdisablePreDex
     - ./gradlew test connectedCheck -PdisablePreDex
     - cp -r cache/build/outputs/androidTest-results/connected $CIRCLE_TEST_REPORTS
